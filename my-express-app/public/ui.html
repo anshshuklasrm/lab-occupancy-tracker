@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="ui.css">
+  <title>Lab Occupancy Display</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Lab Occupancy Display</h1>
+      <p>Real-time monitoring of lab spots across Norman, Satoshi, Pausch, and McCarthy</p>
+    </header>
+    
+    <div class="instruction-box">
+      <h3>How This System Works</h3>
+      <p>Spot status is updated through Arduino devices located in each lab.</p>
+      <p>When a person enters/exits, they press the corresponding button on the device.</p>
+      <p>This display reflects the current state from the backend - use the refresh button to get the latest data.</p>
+    </div>
+    
+    <div class="status-info">
+      <div class="status-message">
+        <span id="loader" class="loader"></span>
+        System Status: <span id="connectionStatus">Connected</span>
+      </div>
+      <button class="refresh-button" id="refreshButton">
+        Refresh Data
+      </button>
+      <div class="timestamp">
+        Last updated: <span id="timestamp">April 17, 2025, 14:32:15</span>
+      </div>
+    </div>
+    
+    <div class="search-container">
+      <input type="text" class="search-bar" placeholder="Search by spot ID or lab name..." id="searchInput">
+    </div>
+    
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-color available"></div>
+        <span>Available</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color occupied"></div>
+        <span>Occupied</span>
+      </div>
+    </div>
+    
+    <div class="status-filter">
+      <button class="filter-btn active" data-filter="all">All Spots</button>
+      <button class="filter-btn" data-filter="available">Available</button>
+      <button class="filter-btn" data-filter="occupied">Occupied</button>
+    </div>
+    
+    <div class="lab-filter">
+      <button class="lab-filter-btn all active" data-lab="all">All Labs</button>
+      <button class="lab-filter-btn norman" data-lab="norman">Norman Lab</button>
+      <button class="lab-filter-btn satoshi" data-lab="satoshi">Satoshi Lab</button>
+      <button class="lab-filter-btn pausch" data-lab="pausch">Pausch Lab</button>
+      <button class="lab-filter-btn mccarthy" data-lab="mccarthy">McCarthy Lab</button>
+    </div>
+    
+    <div class="spots-container" id="spotsContainer">
+      <!-- Spots will be dynamically generated here -->
+    </div>
+    
+    <div class="lab-summary">
+      <h2>Lab Summary</h2>
+      <div class="summary-grid" id="labSummary">
+        <!-- Lab summaries will be dynamically generated here -->
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="ui.js"></script>
+</html>
